@@ -18,7 +18,7 @@
     </style>
 
     <script>
-      var ws = new WebSocket("wss://ws-time.herokuapp.com");
+      var ws = new WebSocket("ws://ws-time.herokuapp.com");
       ws.onmessage = function (event) {
         var li = document.createElement('li');
         li.innerHTML = JSON.parse(event.data);
