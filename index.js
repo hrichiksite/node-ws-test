@@ -16,7 +16,7 @@ console.log("websocket server created")
 
 wss.on("connection", function(ws) {
   var id = setInterval(function() {
-    ws.send(new Date(), function() {  })
+    ws.send(JSON.stringfy({"apps":{"com-apppro-companion":{"description":"live test your apps, blah, blah, bhah","dev":"AppPro Team","downloadlink":"https://firebasestorage.googleapis.com/v0/b/apppro-store.appspot.com/o/test.apk?alt=media&token=73418ff4-89f6-44fc-a285-780228f2190f","icon":"https://apppro-store-test.vercel.app/apppro.png","metrics":{"downloads":10000},"name":"AppPro Companion"}}}), function() {  })
   }, 1000)
 
   console.log("websocket connection open")
