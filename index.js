@@ -1,9 +1,12 @@
 var WebSocketServer = require("ws").Server
 var http = require("http")
 var express = require("express")
+const UserAgent = require('user-agents'); 
+
+const userAgent = new UserAgent(); 
+
 var app = express()
 var port = process.env.PORT || 5000
-var data = {"name":"AppPro Companion"}
 app.use(express.static(__dirname + "/"))
 
 var server = http.createServer(app)
@@ -16,7 +19,7 @@ console.log("websocket server created")
 
 wss.on("connection", function(ws) {
   var id = setInterval(function() {
-    ws.send(JSON.stringfy(data), function() {  })
+    ws.send(JSON.stringify(userAgent.data, null, 1), function() {  })
   }, 1000)
 
   console.log("websocket connection open")
