@@ -3,7 +3,7 @@ var http = require("http")
 var express = require("express")
 var app = express()
 var port = process.env.PORT || 5000
-
+var data = {"name":"AppPro Companion"}
 app.use(express.static(__dirname + "/"))
 
 var server = http.createServer(app)
@@ -16,7 +16,7 @@ console.log("websocket server created")
 
 wss.on("connection", function(ws) {
   var id = setInterval(function() {
-    ws.send(JSON.stringfy({"name":"AppPro Companion"}), function() {  })
+    ws.send(JSON.stringfy(data), function() {  })
   }, 1000)
 
   console.log("websocket connection open")
